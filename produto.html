@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Produto | B.SEGRETO</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="produto"></div>
+
+<script src="js/produtos.js"></script>
+<script src="js/carrinho.js"></script>
+<script>
+const id = new URLSearchParams(window.location.search).get("id");
+const p = produtos.find(x => x.id == id);
+document.getElementById("produto").innerHTML = `
+  <h1>${p.nome}</h1>
+  <img src="${p.imagem}">
+  <p>${p.descricao}</p>
+  <strong>${p.preco}</strong><br><br>
+  <button onclick='addCarrinho(${JSON.stringify(p)})' class="btn gold">Adicionar ao Carrinho</button>
+  <br><br>
+  <a class="btn" href="https://wa.me/5521968684242?text=Quero%20comprar%20${p.nome}">WhatsApp</a>
+`;
+</script>
+</body>
+</html>

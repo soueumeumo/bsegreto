@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Coleção | B.SEGRETO</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h2>Coleção</h2>
+<section id="catalogo" class="catalogo"></section>
+
+<script src="js/produtos.js"></script>
+<script src="js/carrinho.js"></script>
+<script>
+produtos.forEach(p => {
+  document.getElementById("catalogo").innerHTML += `
+    <div class="card">
+      <img src="${p.imagem}">
+      <h3>${p.nome}</h3>
+      <p>${p.preco}</p>
+      <button onclick='addCarrinho(${JSON.stringify(p)})' class="btn">Adicionar</button>
+      <a class="btn gold" href="produto.html?id=${p.id}">Ver</a>
+    </div>
+  `;
+});
+</script>
+</body>
+</html>
